@@ -1,7 +1,7 @@
 <%= render "shared/errors", obj: @recipe %>
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
-        <%=form_for @recipe do |f| %>
+        <%=form_for(@recipe, html: {multipart:true}) do |f| %>
             <%= f.label :name %>
             <%= f.text_field :name %>
             
@@ -11,6 +11,9 @@
             <%= f.label :description %>
             <%= f.text_area :description %>
             
+            <span class="picture">
+                <%= f.file_field :picture,accept: 'image/jpeg, image/gif, image/png' %>
+            </span>
             <%= f.submit  class: "btn btn-success" %>  
         <% end %>
     </div>

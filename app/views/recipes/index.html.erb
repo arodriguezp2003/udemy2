@@ -9,12 +9,15 @@
               <h5>Chef Name:<%= d.chef.chefname %></h5>
           </section>
       </div>
-      <div class="col-lg-8 well">
+      <div class="col-lg-6 well">
          <h4><%= link_to d.name, d %></h4>
          <p><%=d.summary%></p>
          <p>
              <small class="quiet"><%=time_ago_in_words(d.created_at) %> ago</small>
          </p>
+      </div>
+      <div class="col-md-4">
+          <%= image_tag(d.picture.url,size:"250x150",class:"gravatar") if d.picture? %>
       </div>
   </div>
   <hr/>
