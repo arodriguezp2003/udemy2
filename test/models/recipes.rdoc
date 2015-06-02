@@ -8,5 +8,5 @@ description:string
 - summary must be present
 - summary must be  between 10 character and less than 150 characters
 - description must be present
-- description must be between 20 and 50 characters
+- description must be between 20 and 500 characters
 - chef_id must be present

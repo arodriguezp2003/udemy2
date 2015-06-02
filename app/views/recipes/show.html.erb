@@ -1,0 +1,24 @@
+<p>
+    <h1><%= @recipe.name %></h1>
+</p>
+<div class="row">
+    <div class="col-md-4 pull-right center">
+        <%= gravatar_for @recipe.chef,size: 200 %>
+        <p>
+            <h5>Brougth to you by <%= @recipe.chef.chefname %></h5>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <%= link_to "edit", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
+        <h3><%= @recipe.summary %></h3>
+        <div class="well">
+            <p>
+                <strong>
+                    steps:
+                </strong>
+            </p>
+            <%= simple_format(@recipe.description) %>
+        </div>
+    </div>
+</div>
+<h5><%= link_to "Return Recipes List", recipes_path, class: "btn btn-warning btn-small" %></h5>

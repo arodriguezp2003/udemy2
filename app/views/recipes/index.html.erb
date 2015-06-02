@@ -1,0 +1,21 @@
+<h1>All Recipes</h1>
+<hr/>
+
+<% @recipes.each do |d| %>
+  <div class="row">
+      <div class="col-md-2">
+          <section class="chef_info center">
+              <%=gravatar_for d.chef, size: 100 %>
+              <h5>Chef Name:<%= d.chef.chefname %></h5>
+          </section>
+      </div>
+      <div class="col-lg-8 well">
+         <h4><%= link_to d.name, d %></h4>
+         <p><%=d.summary%></p>
+         <p>
+             <small class="quiet"><%=time_ago_in_words(d.created_at) %> ago</small>
+         </p>
+      </div>
+  </div>
+  <hr/>
+<% end %>
