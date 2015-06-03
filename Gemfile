@@ -28,10 +28,10 @@ gem 'mini_magick','3.8.0'
 gem 'will_paginate','3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
-gem 'spring',        group: :development
+gem 'spring', '1.3.6' ,     group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -46,9 +46,10 @@ group :development, :test do
     gem 'sqlite3'
     gem 'pry'
 end
-
-group :production do
-    gem 'pg'
-    gem 'rails_12factor'
-end
+gem 'mysql2', '~> 0.3.16'
+gem 'unicorn'
+#group :production do
+#    gem 'mysql2', '~> 0.3.16'
+#    gem 'rails_12factor'
+#end
 
