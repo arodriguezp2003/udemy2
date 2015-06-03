@@ -1,10 +1,6 @@
 class RecipesController < ApplicationController
     def index
-        respond_to do |format|
-            @recipes = Recipe.all
-            format.html # show.html.erb
-            format.json { render json: @recipes }
-        end
+        @recipes = Recipe::paginate(:page => params[:page], :per_page=> 4)
        
     end
     
@@ -47,6 +43,18 @@ class RecipesController < ApplicationController
         end
     end
     
+    def like
+        @recipe = Recipe.find(params[:id])
+        like = Like.create(likes: params[:like], chef: Chef.first, recipe: @recipe)
+        if like.valid?
+            flash[:success] = "Your Selection was Succesfull"
+            redirect_to :back
+        else
+            flash[:danger] = "You can only like/deslike a recipe once"
+            redirect_to :back
+        end
+        
+    end
     private
         
         def recipe_param
